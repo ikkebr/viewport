@@ -16,6 +16,7 @@ class ViewFrameGenerator(wx.Frame):
         self.InitUI()
         self.Centre()
 
+
     def InitUI(self):
         wx.StaticText(self, label='x:', pos=(10,10))
         wx.StaticText(self, label='y:', pos=(10,30))
@@ -38,15 +39,15 @@ class ViewFrameGenerator(wx.Frame):
         Popen(r'%s --qt-minimal-view --no-autoscale screen:// :screen-fps=5.000000 :live-caching=1 :screen-top=%d :screen-left=%d :screen-width=%d :screen-height=%d' % (PATH_TO_VLC, self.y-30, self.x, self.width-30, self.height-30))
         self.Hide()
         
+
     def on_move(self, e):
         self.x, self.y = e.GetPosition()
-        
         self.str_x.SetLabel(str(self.x))
         self.str_y.SetLabel(str(self.y))
 
+
     def on_resize(self, e):
         self.width, self.height = e.GetSize()
-         
         self.str_w.SetLabel(str(self.width))
         self.str_h.SetLabel(str(self.height))
 
